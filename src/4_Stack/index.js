@@ -1,20 +1,43 @@
 // Do not use arrays!
+class Node {
+  constructor(value) {
+    this.value=value;
+    this.next=null;
+  }
+}
 export class Stack {
   constructor() {
-    this.items=[];
+    this.first=null;
   }
+
   push(value) {
-    this.items.push(value);
+    const newNode = new Node(value);
+    if(!this.first) {
+      this.first = newNode;
+    }
+    else{
+      newNode.next = this.first;
+      this.first = newNode;
+    }
   }
 
   pop() {
-    if (this.items.length == 0){
-      return 'Underflow'
+    if(!this.first) {
+      return null;
     }
-    return this.items.pop();
+    else {
+      const popcurrentNode = this.first.value;
+      this.first = this.first.next;
+      return popcurrentNode;
+    }
   }
 
   peek() {
-    return this.items[this.items.length - 1];
+    if(!this.first){
+      return null;
+    }
+    else{
+     return this.first.value;
+    }
   }
 }
