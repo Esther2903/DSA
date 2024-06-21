@@ -1,8 +1,20 @@
 // Do not use arrays!
 export class Stack {
-  push(value) {}
+  constructor() {
+    this.items=[];
+  }
+  push(value) {
+    this.items.push(value);
+  }
 
-  pop() {}
+  pop() {
+    if (this.items.length == 0){
+      return 'Underflow'
+    }
+    return this.items.pop();
+  }
 
-  peek() {}
+  peek() {
+    return this.items[this.items.length - 1];
+  }
 }
