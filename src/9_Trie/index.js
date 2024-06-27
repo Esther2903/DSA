@@ -23,7 +23,7 @@ export class Trie {
     let node = this.root;
     for (const char of word) {
       if (!node.children[char]) {
-        return [];
+        return null
       }
       node = node.children[char];
     }
